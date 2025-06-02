@@ -53,6 +53,7 @@ void MainWindow::initializeModels()
     models[ElementType::Supplies] = new QtModel(this, ElementType::Supplies);
     models[ElementType::Suppliers] = new QtModel(this, ElementType::Suppliers);
     models[ElementType::Supply_requests] = new QtModel(this, ElementType::Supply_requests);
+    models[ElementType::SearchingResult] = new QtModel(this, ElementType::SearchingResult);
 }
 
 void MainWindow::setupComboBox()
@@ -122,5 +123,28 @@ void MainWindow::on_pushButton_delete_clicked()
         if (models.contains(currentType)) {
             models[currentType]->removeItem(index);
         }
+    }
+}
+
+void MainWindow::on_pushButton_search_clicked()
+{
+    if (ui->pushButton_search->text() != "Отмена") {
+            QString searchingRowDate = ui->dateEdit->dateTime().toString();
+            QString searchingRowQuality = ui->lineEdit_search_2->text();
+
+            if (searchingRowQuality == "") {
+                searchingRowQuality = "%";
+            } else {
+                searchingRowQuality = "%" + searchingRowQuality + "%";
+            }
+
+            ui->table->setModel(models[ElementType::SearchingResult]);
+            ui->table->resizeColumnsToContents();
+            models[ElementType::SearchingResult]->search(searchingRowQuality, searchingRowDate);
+            ui->pushButton_search->setText("Отмена");
+
+    } else {
+        on_comboBox_currentIndexChanged(ui->comboBox->currentIndex());
+        ui->pushButton_search->setText("Поиск сотрудника");
     }
 }

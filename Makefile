@@ -3358,6 +3358,10 @@ mainwindow.o: mainwindow.cpp mainwindow.h \
 		/opt/homebrew/include/QtWidgets/qabstractitemview.h \
 		/opt/homebrew/include/QtWidgets/qabstractscrollarea.h \
 		/opt/homebrew/include/QtCore/qitemselectionmodel.h \
+		/opt/homebrew/include/QtWidgets/QLabel \
+		/opt/homebrew/include/QtWidgets/qlabel.h \
+		/opt/homebrew/include/QtWidgets/QLineEdit \
+		/opt/homebrew/include/QtWidgets/qlineedit.h \
 		/opt/homebrew/include/QtWidgets/QMainWindow \
 		/opt/homebrew/include/QtWidgets/qmainwindow.h \
 		/opt/homebrew/include/QtWidgets/QMenuBar \

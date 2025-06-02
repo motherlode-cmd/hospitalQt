@@ -17,7 +17,7 @@ public:
     // Переопределение виртуальных методов базового класса
     void addItem(QStringList &newValue) override;
     void removeItem(QModelIndex &index) override;
-    void search(const QString &searchString) override;
+    void search(const QString &position, const QString &qualification_type) override;
     QList<QStringList> *getQList() override;
     QStringList get_headers() const override;
 

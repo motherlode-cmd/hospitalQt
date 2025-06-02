@@ -79,7 +79,7 @@ void Database::deleteRow(const QString id)
     }
 }
 
-QList<QStringList> Database::searchRows(const QString &searchString, const QString &columnSearch)
+QList<QStringList> Database::searchRows(const QString &position, const QString &qualification_date)
 {
     auto db = QSqlDatabase::database();
     if (!db.isOpen())
@@ -89,16 +89,17 @@ QList<QStringList> Database::searchRows(const QString &searchString, const QStri
 
     QSqlQuery query;
 
-    auto tableNmae = this->getTableName();
-    query.prepare(QString("SELECT * FROM %1"
-                          "WHERE %2 LIKE '%3'")
-                      .arg(tableNmae)
-                      .arg(columnSearch)
-                      .arg(searchString));
+    query.prepare(QString("SELECT e.* "
+        "FROM employees e "
+        "JOIN employee_qualifications eq ON e.id = eq.employee_id "
+        "WHERE e.position LIKE %1  "
+        "AND eq.qualification_date before %2 " )
+                      .arg(position)
+                      .arg(qualification_date));
     bool isOk = query.exec();
     if (!isOk)
     {
-        qDebug() << "SQL Error:" << query.lastError().text();
+        qDebug() << "SQL Error searching:" << query.lastError().text();
     }
 
     return this->processSelectQuery(query);

@@ -17,9 +17,9 @@ void QtModel::removeItem(QModelIndex & index) {
     populate(&list);
 }
 
-void QtModel::search(const QString &searchString) {
-    db->searchRows(searchString, "");
-    auto list = db->selectRows();
+void QtModel::search(const QString &position, const QString &qualification_date) {
+    db->searchRows(position, qualification_date);
+    auto list = db->searchRows(position,qualification_date);
     populate(&list);
 }
 

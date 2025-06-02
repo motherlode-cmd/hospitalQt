@@ -14,7 +14,7 @@ public:
     void writeItem(QString filename);
     virtual void addItem(QStringList & newValue) = 0;
     virtual void removeItem(QModelIndex & index) = 0;
-    virtual void search(const QString & searchString) = 0;
+    virtual void search(const QString &position, const QString &qualification_type) = 0;
     virtual void alt_search(const QString & searchString);
     virtual QList<QStringList> * getQList() = 0;
     virtual QStringList get_headers() const = 0;
