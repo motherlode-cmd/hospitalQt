@@ -142,7 +142,6 @@ void MainWindow::on_pushButton_search_clicked()
             ui->table->resizeColumnsToContents();
             models[ElementType::SearchingResult]->search(searchingRowQuality, searchingRowDate);
             ui->pushButton_search->setText("Отмена");
-
     } else {
         on_comboBox_currentIndexChanged(ui->comboBox->currentIndex());
         ui->pushButton_search->setText("Поиск сотрудника");

@@ -47,7 +47,7 @@ const QMap<ElementType, QStringList> tableLabels{
     {ElementType::Supplies, {"id", "item_code", "purpose", "description", "item_type", "stock_quantity", "reorder_level", "unit_cost"}},
     {ElementType::Suppliers, {"id", "supplier_number", "name", "address_city", "address_street", "address_house", "address_apartment", "phone", "fax"}},
     {ElementType::Supply_requests, {"id", "request_number", "employee_id", "ward_id", "item_id", "medication_id", "quantity", "order_date", "delivery_date", "status"}},
-    {ElementType::SearchingResult, {"id", "personnel_number", "last_name", "first_name", "middle_name", "address_city", "address_street", "address_house", "address_apartment", "phone", "birth_date", "gender", "passport_series", "passport_number", "position", "current_salary", "pay_rate", "hours_per_week", "payment_frequency", "contract_type", "ward_id", "qualification_type", "qualification_date", "institution_name"}},
+    {ElementType::SearchingResult, {"id", "personnel_number", "last_name", "first_name", "middle_name", "address_city", "address_street", "address_house", "address_apartment", "phone", "birth_date", "gender", "passport_series", "passport_number", "position", "current_salary", "pay_rate", "hours_per_week", "payment_frequency", "contract_type", "ward_id", "created_at", "updated_at"}},
     {ElementType::Unknown, {}}};
 
 const QMap<ElementType, QString> tableNames{
@@ -66,7 +66,8 @@ const QMap<ElementType, QString> tableNames{
     {ElementType::Prescribed_medications, "prescribed_medications"},
     {ElementType::Supplies, "supplies"},
     {ElementType::Suppliers, "suppliers"},
-    {ElementType::Supply_requests, "supply_requests"}};
+    {ElementType::Supply_requests, "supply_requests"},
+    {ElementType::SearchingResult, "(SELECT e.* FROM employees e JOIN employee_qualifications eq ON e.id = eq.employee_id)"}};
 
 const QMap<QString, QString> descriptionLabels{
     // Общие поля

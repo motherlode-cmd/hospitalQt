@@ -25,7 +25,7 @@ void Database::insertRow(QStringList &row)
     {
 
         isertedColumns += colunmNames[i];
-        insertedValuesString += ":" + colunmNames[i]; 
+        insertedValuesString += ":" + colunmNames[i];
 
         if (i < colunmNames.size() - 1)
         {
@@ -42,15 +42,15 @@ void Database::insertRow(QStringList &row)
 
     for (int i = 0; i < row.size(); i++)
     {
-        query.bindValue(QString(":%1").arg(colunmNames[i+1]), row.at(i));
+        query.bindValue(QString(":%1").arg(colunmNames[i + 1]), row.at(i));
     }
 
-    qDebug() << query.lastQuery()<<" QUERY";
+    qDebug() << query.lastQuery() << " QUERY";
 
     bool isOk = query.exec();
     if (!isOk)
     {
-        qDebug() << "SQL Error:" << query.lastError().text();
+        qDebug() << "SQL Error Insert :" << query.lastError().text();
     }
 }
 
@@ -75,7 +75,7 @@ void Database::deleteRow(const QString id)
     bool isOk = query.exec();
     if (!isOk)
     {
-        qDebug() << "SQL Error:" << query.lastError().text();
+        qDebug() << "SQL Error delete:" << query.lastError().text();
     }
 }
 
@@ -90,12 +90,13 @@ QList<QStringList> Database::searchRows(const QString &position, const QString &
     QSqlQuery query;
 
     query.prepare(QString("SELECT e.* "
-        "FROM employees e "
-        "JOIN employee_qualifications eq ON e.id = eq.employee_id "
-        "WHERE e.position LIKE %1  "
-        "AND eq.qualification_date before %2 " )
-                      .arg(position)
-                      .arg(qualification_date));
+                          "FROM employees e "
+                          "JOIN employee_qualifications eq ON e.id = eq.employee_id "
+                          "WHERE e.position LIKE ? "
+                          "AND strftime('%Y-%m-%d %H:%M:%S', eq.qualification_date) <= ? "));
+
+    query.addBindValue(position);
+    query.addBindValue(qualification_date);
     bool isOk = query.exec();
     if (!isOk)
     {
@@ -104,7 +105,7 @@ QList<QStringList> Database::searchRows(const QString &position, const QString &
 
     return this->processSelectQuery(query);
 }
-
+    
 QList<QStringList> Database::selectRows()
 {
     auto db = QSqlDatabase::database();
@@ -116,14 +117,32 @@ QList<QStringList> Database::selectRows()
     QSqlQuery query;
 
     auto tableNmae = this->getTableName();
+
     qDebug() << "SELECT in " << tableNmae;
+
+    if (tableType == ElementType::SearchingResult)
+    {
+        query.prepare(QString("SELECT e.* "
+                              "FROM employees e "
+                              "JOIN employee_qualifications eq ON e.id = eq.employee_id "));
+
+        bool isOk = query.exec();
+        if (!isOk)
+        {
+            qDebug() << "SQL Error searching select :" << query.lastError().text();
+        }
+
+        qDebug() << "SQL select finished:" << query.lastQuery();
+
+        return this->processSelectQuery(query);
+    }
 
     query.prepare(QString("SELECT * FROM %1")
                       .arg(tableNmae));
     bool isOk = query.exec();
     if (!isOk)
     {
-        qDebug() << "SQL Error:" << query.lastError().text();
+        qDebug() << " select " << tableNmae << ":" << query.lastError().text();
     }
 
     return this->processSelectQuery(query);
@@ -133,14 +152,17 @@ QList<QStringList> Database::processSelectQuery(QSqlQuery &query)
 {
     QList<QStringList> result;
     auto columnCount = query.record().count();
-    
-    while (query.next()) {
+
+    while (query.next())
+    {
         QStringList row;
-        for (int i = 0; i < columnCount; ++i) {
+        for (int i = 0; i < columnCount; ++i)
+        {
             row << query.value(i).toString();
         }
         result << row;
     }
-    
+
+    qDebug()<< "process finished "<< query.lastQuery();
     return result;
 }
