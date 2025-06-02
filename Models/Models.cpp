@@ -45,6 +45,8 @@ void Database::insertRow(QStringList &row)
         query.bindValue(QString(":%1").arg(colunmNames[i+1]), row.at(i));
     }
 
+    qDebug() << query.lastQuery()<<" QUERY";
+
     bool isOk = query.exec();
     if (!isOk)
     {

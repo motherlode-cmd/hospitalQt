@@ -81,6 +81,14 @@ void FormComplant::on_buttonBox_accepted()
 {
     QStringList userData;
 
+    QStringList labelsWithoutId = tableLabels[m_formType];
+
+    labelsWithoutId.removeFirst();
+
+    for (auto label : labelsWithoutId) {
+        userData.append(m_lineEdits[label]->text());
+    }
+
     emit dataEntered(userData);
     close();
 }
