@@ -1,0 +1,4 @@
+#ifndef ABSTRACTITEM_H
+#define ABSTRACTITEM_H
+
+#endif // ABSTRACTITEM_H

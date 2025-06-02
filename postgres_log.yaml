@@ -1,0 +1,5 @@
+username: me
+password: 1111
+database_name: mydatabase
+host_name: "127.0.0.1"
+port_num: 5432
