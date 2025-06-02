@@ -8,6 +8,58 @@ FormComplant::FormComplant(QWidget *parent)
     ui->setupUi(this);
 }
 
+FormComplant::FormComplant(ElementType formType, QWidget *parent)
+    : QDialog(parent)
+    , ui(new Ui::FormComplant)
+{
+    ui->setupUi(this);
+
+    this->m_formType = formType;
+   
+
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+
+    int countLabels = tableLabels[formType].length();
+    
+    int maxLabelWidth = 0;
+    QFontMetrics fm(this->font());
+
+    for (const auto& label : tableLabels[formType]) {
+        QString labelText = descriptionLabels[label];
+        maxLabelWidth = qMax(maxLabelWidth, fm.horizontalAdvance(labelText));
+    }
+
+    maxLabelWidth += 20; 
+
+    for (const auto& field : tableLabels[formType]) {
+
+        QLabel *label = new QLabel("Введите" + descriptionLabels[formType], this);
+
+        label->setFixedWidth(maxLabelWidth);
+        label->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+        
+        QLineEdit *lineEdit = new QLineEdit(this);
+        lineEdit->setMinimumWidth(250);
+        
+        auto qvalidatorLabel = fieldValidators[field];
+        QValidator *qLabelValidator = new QRegularExpressionValidator(qvalidatorLabel, this);
+        
+        m_lineEdits[field] = lineEdit;
+        
+        rowLayout->addWidget(label);
+        rowLayout->addWidget(lineEdit);
+        
+        mainLayout->addLayout(rowLayout);
+    }
+    
+    mainLayout->addStretch();
+    
+    this->setLayout(mainLayout);
+    
+    this->adjustSize();
+    this->setMinimumWidth(400);
+}
+
 FormComplant::~FormComplant()
 {
     delete ui;
@@ -16,11 +68,7 @@ FormComplant::~FormComplant()
 void FormComplant::on_buttonBox_accepted()
 {
     QStringList userData;
-    userData.append(ui->lineEdit_doctor_id->text());
-    userData.append(ui->lineEdit_patient_id->text());
-    userData.append(ui->comboBox_status->currentText());
-    userData.append(ui->dateEdit_end_date->text());
-    userData.append(ui->lineEdit_complaint_message->text());
-    emit dataEntered(userData);
+
+    //emit dataEntered(userData);
     close();
 }

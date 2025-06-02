@@ -1,6 +1,11 @@
 {
     "files.associations": {
         "*.dbclient-js": "javascript",
-        "map": "cpp"
+        "map": "cpp",
+        "__locale": "cpp",
+        "string": "cpp",
+        "string_view": "cpp",
+        "locale": "cpp",
+        "new": "cpp"
     }
 }

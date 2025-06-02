@@ -5,6 +5,8 @@
 #include <QStringList>
 #include <QString>
 #include <QMap>
+#include <QRegularExpression>
+#include <QValidator>
 
 enum class ElementType
 {
@@ -87,7 +89,7 @@ const QMap<ElementType, QString> tableNames{
 {ElementType::Supply_requests, "supply_requests"}
 };
 
-const QMap<QString, QString> descriptionLabels
+QMap<QString, QString> descriptionLabels
 {
     // Общие поля
     {"id", "Уникальный идентификатор"},
@@ -192,5 +194,111 @@ const QMap<QString, QString> descriptionLabels
     {"order_date", "Дата заказа"},
     {"delivery_date", "Дата доставки"},
     {"status", "Статус (ожидает/доставлено/отменено)"}
+};
+
+const QMap<QString, QRegularExpression> fieldValidators {
+    // Общие поля
+    {"id", QRegularExpression("^\\d+$")}, // Только цифры
+    {"number", QRegularExpression("^[A-Za-z0-9-]+$")}, // Буквы, цифры и дефисы
+    {"name", QRegularExpression("^[\\p{L}0-9\\s\\.-]+$", QRegularExpression::UseUnicodePropertiesOption)}, // Буквы, цифры, пробелы, точки, дефисы
+    {"phone", QRegularExpression("^\\+?[0-9\\s()-]{7,20}$")}, // Международные номера
+    {"address_city", QRegularExpression("^[\\p{L}\\s-]+$", QRegularExpression::UseUnicodePropertiesOption)}, // Только буквы и дефисы
+    {"address_street", QRegularExpression("^[\\p{L}0-9\\s\\.-]+$", QRegularExpression::UseUnicodePropertiesOption)},
+    {"address_house", QRegularExpression("^[0-9]+[A-Za-z]?$")}, // Номер дома с возможной буквой
+    {"address_apartment", QRegularExpression("^[0-9]+[A-Za-z]?$")}, // Номер квартиры
+    {"description", QRegularExpression("^[\\p{L}0-9\\s\\.\\,\\!\\?-]+$", QRegularExpression::UseUnicodePropertiesOption)}, // Текст с пунктуацией
+
+    // Палаты
+    {"location", QRegularExpression("^[A-Za-z0-9\\s-]+$")}, // Блоки с цифрами/буквами
+    {"total_beds", QRegularExpression("^\\d{1,3}$")}, // До 3 цифр
+    {"phone_extension", QRegularExpression("^\\d{2,5}$")}, // 2-5 цифр
+
+    // Сотрудники
+    {"personnel_number", QRegularExpression("^[A-Za-z0-9-]{5,20}$")},
+    {"last_name", QRegularExpression("^[\\p{L}-]+$", QRegularExpression::UseUnicodePropertiesOption)},
+    {"first_name", QRegularExpression("^[\\p{L}-]+$", QRegularExpression::UseUnicodePropertiesOption)},
+    {"middle_name", QRegularExpression("^[\\p{L}-]*$", QRegularExpression::UseUnicodePropertiesOption)}, // Может быть пустым
+    {"birth_date", QRegularExpression("^(0[1-9]|[12][0-9]|3[01])\\.(0[1-9]|1[012])\\.(19|20)\\d\\d$")}, // DD.MM.YYYY
+    {"gender", QRegularExpression("^[МЖ]$")}, // Только М или Ж
+    {"passport_series", QRegularExpression("^\\d{4}$")},
+    {"passport_number", QRegularExpression("^\\d{6}$")},
+    {"position", QRegularExpression("^[\\p{L}\\s-]+$", QRegularExpression::UseUnicodePropertiesOption)},
+    {"current_salary", QRegularExpression("^\\d{1,6}(\\.\\d{1,2})?$")}, // Зарплата с копейками
+    {"pay_rate", QRegularExpression("^\\d{1,4}(\\.\\d{1,2})?$")},
+    {"hours_per_week", QRegularExpression("^\\d{1,2}(\\.\\d{1,1})?$")}, // До 99.9 часов
+    {"payment_frequency", QRegularExpression("^(еженедельно|ежемесячно)$")},
+    {"contract_type", QRegularExpression("^(постоянный|временный)$")},
+    {"ward_id", QRegularExpression("^\\d+$")},
+
+    // Квалификация и опыт
+    {"employee_id", QRegularExpression("^\\d+$")},
+    {"qualification_type", QRegularExpression("^[\\p{L}\\s-]+$", QRegularExpression::UseUnicodePropertiesOption)},
+    {"qualification_date", QRegularExpression("^(0[1-9]|[12][0-9]|3[01])\\.(0[1-9]|1[012])\\.(19|20)\\d\\d$")},
+    {"institution_name", QRegularExpression("^[\\p{L}0-9\\s\\.\"'-]+$", QRegularExpression::UseUnicodePropertiesOption)},
+    {"organization_name", QRegularExpression("^[\\p{L}0-9\\s\\.\"'-]+$", QRegularExpression::UseUnicodePropertiesOption)},
+    {"start_date", QRegularExpression("^(0[1-9]|[12][0-9]|3[01])\\.(0[1-9]|1[012])\\.(19|20)\\d\\d$")},
+    {"end_date", QRegularExpression("^(0[1-9]|[12][0-9]|3[01])\\.(0[1-9]|1[012])\\.(19|20)\\d\\d$|^$")}, // Может быть пустым
+
+    // График работы
+    {"shift_date", QRegularExpression("^(0[1-9]|[12][0-9]|3[01])\\.(0[1-9]|1[012])\\.(19|20)\\d\\d$")},
+    {"shift_type", QRegularExpression("^(утро|день|ночь)$")},
+
+    // Пациенты
+    {"patient_number", QRegularExpression("^[A-Za-z0-9-]{5,20}$")},
+    {"marital_status", QRegularExpression("^[\\p{L}\\s-]+$", QRegularExpression::UseUnicodePropertiesOption)},
+    {"registration_date", QRegularExpression("^(0[1-9]|[12][0-9]|3[01])\\.(0[1-9]|1[012])\\.(19|20)\\d\\d$")},
+
+    // Родственники
+    {"relationship", QRegularExpression("^[\\p{L}\\s-]+$", QRegularExpression::UseUnicodePropertiesOption)},
+
+    // Участковые врачи
+    {"clinic_name", QRegularExpression("^[\\p{L}0-9\\s\\.\"'-]+$", QRegularExpression::UseUnicodePropertiesOption)},
+
+    // Приемы
+    {"district_doctor_id", QRegularExpression("^\\d+$")},
+    {"consultant_last_name", QRegularExpression("^[\\p{L}-]+$", QRegularExpression::UseUnicodePropertiesOption)},
+    {"consultant_first_name", QRegularExpression("^[\\p{L}-]+$", QRegularExpression::UseUnicodePropertiesOption)},
+    {"consultant_middle_name", QRegularExpression("^[\\p{L}-]*$", QRegularExpression::UseUnicodePropertiesOption)}, // Может быть пустым
+    {"consultant_personnel_number", QRegularExpression("^[A-Za-z0-9-]{5,20}$")},
+    {"appointment_date", QRegularExpression("^(0[1-9]|[12][0-9]|3[01])\\.(0[1-9]|1[012])\\.(19|20)\\d\\d\\s([01][0-9]|2[0-3]):[0-5][0-9]$")}, // DD.MM.YYYY HH:MM
+    {"room_number", QRegularExpression("^[A-Za-z0-9-]{1,10}$")},
+    {"recommendation", QRegularExpression("^[\\p{L}0-9\\s\\.\\,\\!\\?-]+$", QRegularExpression::UseUnicodePropertiesOption)},
+
+    // Стационарные пациенты
+    {"bed_number", QRegularExpression("^[A-Za-z0-9-]{1,10}$")},
+    {"queue_registration_date", QRegularExpression("^(0[1-9]|[12][0-9]|3[01])\\.(0[1-9]|1[012])\\.(19|20)\\d\\d$")},
+    {"assigned_ward_id", QRegularExpression("^\\d+$")},
+    {"expected_treatment_days", QRegularExpression("^\\d{1,3}$")},
+    {"placement_date", QRegularExpression("^(0[1-9]|[12][0-9]|3[01])\\.(0[1-9]|1[012])\\.(19|20)\\d\\d$")},
+    {"expected_discharge_date", QRegularExpression("^(0[1-9]|[12][0-9]|3[01])\\.(0[1-9]|1[012])\\.(19|20)\\d\\d$")},
+    {"actual_discharge_date", QRegularExpression("^(0[1-9]|[12][0-9]|3[01])\\.(0[1-9]|1[012])\\.(19|20)\\d\\d$|^$")}, // Может быть пустым
+
+    // Медикаменты
+    {"medication_code", QRegularExpression("^[A-Za-z0-9-]{5,20}$")},
+    {"dosage", QRegularExpression("^\\d{1,5}(\\.\\d{1,3})?\\s?[a-zA-Z]{0,5}$")}, // Число с единицами измерения
+    {"administration_method", QRegularExpression("^[\\p{L}\\s-]+$", QRegularExpression::UseUnicodePropertiesOption)},
+    {"stock_quantity", QRegularExpression("^\\d{1,6}$")},
+    {"reorder_level", QRegularExpression("^\\d{1,6}$")},
+    {"unit_cost", QRegularExpression("^\\d{1,6}(\\.\\d{1,2})?$")},
+
+    // Назначенные медикаменты
+    {"medication_id", QRegularExpression("^\\d+$")},
+    {"daily_dosage", QRegularExpression("^\\d{1,2}$")}, // До 99 приемов в день
+
+    // Расходные материалы
+    {"item_code", QRegularExpression("^[A-Za-z0-9-]{5,20}$")},
+    {"purpose", QRegularExpression("^[\\p{L}\\s-]+$", QRegularExpression::UseUnicodePropertiesOption)},
+    {"item_type", QRegularExpression("^(хирургический|нехирургический|фармацевтический)$")},
+
+    // Поставщики
+    {"supplier_number", QRegularExpression("^[A-Za-z0-9-]{5,20}$")},
+    {"fax", QRegularExpression("^\\+?[0-9\\s()-]{7,20}$")},
+
+    // Заявки
+    {"request_number", QRegularExpression("^[A-Za-z0-9-]{5,20}$")},
+    {"quantity", QRegularExpression("^\\d{1,6}$")},
+    {"order_date", QRegularExpression("^(0[1-9]|[12][0-9]|3[01])\\.(0[1-9]|1[012])\\.(19|20)\\d\\d$")},
+    {"delivery_date", QRegularExpression("^(0[1-9]|[12][0-9]|3[01])\\.(0[1-9]|1[012])\\.(19|20)\\d\\d$|^$")}, // Может быть пустым
+    {"status", QRegularExpression("^(ожидает|доставлено|отменено)$")}
 };
 #endif

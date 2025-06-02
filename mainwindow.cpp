@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "Forms/formcomplant.h"
 #include <QDebug>
 #include <QMessageBox>
 
@@ -108,9 +109,9 @@ void MainWindow::showFormForCurrentTable()
     QMessageBox::information(this, "Добавление", 
                            QString("Должна открыться форма для добавления в таблицу %1").arg(tableName));
     
-    //Form *form = new Form(currentType, this);
-    //connect(form, &Form::dataEntered, models[currentType], &QTableModel::addItem);
-    //form->show();
+    Form *form = new FormComplant(currentType, this);
+    connect(form, &Form::dataEntered, models[currentType], &QtModel::addItem);
+    form->show();
 }
 
 void MainWindow::on_pushButton_delete_clicked()

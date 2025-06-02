@@ -31,10 +31,6 @@ QMAKE_CXXFLAGS_WARN_ON += -Wno-unused-parameter
 # Исходные файлы (ваш существующий код)
 SOURCES += \
     Forms/formcomplant.cpp \
-    Forms/formpatient.cpp \
-    Forms/formdoctor.cpp \
-    Forms/formprescription.cpp \
-    Forms/formtreatment.cpp \
     QtModels/QTableModel.cpp \
     QtModels/QtModels.cpp \
     Models/Models.cpp \
@@ -43,10 +39,6 @@ SOURCES += \
 
 HEADERS += \
     Forms/formcomplant.h \
-    Forms/formpatient.h \
-    Forms/formdoctor.h \
-    Forms/formprescription.h \
-    Forms/formtreatment.h \
     QtModels/QTableModel.h \
     QtModels/QtModels.hpp \
     Models/Models.hpp \
@@ -54,10 +46,6 @@ HEADERS += \
 
 FORMS += \
     Forms/formcomplant.ui \
-    Forms/formpatient.ui \
-    Forms/formdoctor.ui \
-    Forms/formprescription.ui \
-    Forms/formtreatment.ui \
     mainwindow.ui
 
 # Дефолтные правила деплоя
