@@ -20,19 +20,23 @@ FormComplant::FormComplant(ElementType formType, QWidget *parent)
 
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
 
-    int countLabels = tableLabels[formType].length();
+    QStringList labelsWithoutId = tableLabels[formType];
+
+    labelsWithoutId.removeFirst();
+
+    int countLabels = labelsWithoutId.length();
     
     int maxLabelWidth = 0;
     QFontMetrics fm(this->font());
 
-    for (const auto& label : tableLabels[formType]) {
+    for (const auto& label : labelsWithoutId) {
         QString labelText = descriptionLabels[label];
         maxLabelWidth = qMax(maxLabelWidth, fm.horizontalAdvance(labelText));
     }
 
     maxLabelWidth += 20; 
 
-    for (const auto& field : tableLabels[formType]) {
+    for (const auto& field : labelsWithoutId) {
 
         QLabel *label = new QLabel("Введите " + descriptionLabels[field], this);
 
@@ -43,7 +47,9 @@ FormComplant::FormComplant(ElementType formType, QWidget *parent)
         lineEdit->setMinimumWidth(250);
         
         auto qvalidatorLabel = fieldValidators[field];
-        QValidator *qLabelValidator = new QRegularExpressionValidator(qvalidatorLabel, this);
+        const QValidator *qLabelValidator = new QRegularExpressionValidator(qvalidatorLabel, this);
+
+        lineEdit->setValidator(qLabelValidator);
         
         m_lineEdits[field] = lineEdit;
         m_labels[field] = label;

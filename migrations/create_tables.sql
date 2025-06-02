@@ -1,5 +1,5 @@
 CREATE TABLE wards (
-    id SERIAL PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     number VARCHAR(10) NOT NULL UNIQUE,
     name VARCHAR(100) NOT NULL,
     location VARCHAR(50) NOT NULL,
@@ -10,7 +10,7 @@ CREATE TABLE wards (
 );
 
 CREATE TABLE employees (
-    id SERIAL PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     personnel_number VARCHAR(20) NOT NULL UNIQUE,
     last_name VARCHAR(50) NOT NULL,
     first_name VARCHAR(50) NOT NULL,
@@ -36,7 +36,7 @@ CREATE TABLE employees (
 );
 
 CREATE TABLE employee_qualifications (
-    id SERIAL PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     employee_id INTEGER NOT NULL REFERENCES employees(id),
     qualification_type VARCHAR(100) NOT NULL,
     qualification_date DATE NOT NULL,
@@ -46,7 +46,7 @@ CREATE TABLE employee_qualifications (
 );
 
 CREATE TABLE employee_experience (
-    id SERIAL PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     employee_id INTEGER NOT NULL REFERENCES employees(id),
     organization_name VARCHAR(100) NOT NULL,
     position VARCHAR(100) NOT NULL,
@@ -57,7 +57,7 @@ CREATE TABLE employee_experience (
 );
 
 CREATE TABLE work_schedules (
-    id SERIAL PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     employee_id INTEGER NOT NULL REFERENCES employees(id),
     ward_id INTEGER NOT NULL REFERENCES wards(id),
     shift_date DATE NOT NULL,
@@ -68,7 +68,7 @@ CREATE TABLE work_schedules (
 );
 
 CREATE TABLE patients (
-    id SERIAL PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     patient_number VARCHAR(20) NOT NULL UNIQUE,
     last_name VARCHAR(50) NOT NULL,
     first_name VARCHAR(50) NOT NULL,
@@ -87,7 +87,7 @@ CREATE TABLE patients (
 );
 
 CREATE TABLE patient_relatives (
-    id SERIAL PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     patient_id INTEGER NOT NULL REFERENCES patients(id),
     last_name VARCHAR(50) NOT NULL,
     first_name VARCHAR(50) NOT NULL,
@@ -103,7 +103,7 @@ CREATE TABLE patient_relatives (
 );
 
 CREATE TABLE district_doctors (
-    id SERIAL PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     last_name VARCHAR(50) NOT NULL,
     first_name VARCHAR(50) NOT NULL,
     middle_name VARCHAR(50),
@@ -118,7 +118,7 @@ CREATE TABLE district_doctors (
 );
 
 CREATE TABLE appointments (
-    id SERIAL PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     patient_id INTEGER NOT NULL REFERENCES patients(id),
     district_doctor_id INTEGER REFERENCES district_doctors(id),
     consultant_last_name VARCHAR(50) NOT NULL,
@@ -133,7 +133,7 @@ CREATE TABLE appointments (
 );
 
 CREATE TABLE outpatient_patients (
-    id SERIAL PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     patient_id INTEGER NOT NULL REFERENCES patients(id),
     appointment_date TIMESTAMP NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -141,7 +141,7 @@ CREATE TABLE outpatient_patients (
 );
 
 CREATE TABLE inpatient_patients (
-    id SERIAL PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     patient_id INTEGER NOT NULL REFERENCES patients(id),
     ward_id INTEGER NOT NULL REFERENCES wards(id),
     bed_number VARCHAR(10) NOT NULL,
@@ -156,7 +156,7 @@ CREATE TABLE inpatient_patients (
 );
 
 CREATE TABLE medications (
-    id SERIAL PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     medication_code VARCHAR(20) NOT NULL UNIQUE,
     name VARCHAR(100) NOT NULL,
     description TEXT,
@@ -170,7 +170,7 @@ CREATE TABLE medications (
 );
 
 CREATE TABLE prescribed_medications (
-    id SERIAL PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     patient_id INTEGER NOT NULL REFERENCES patients(id),
     medication_id INTEGER NOT NULL REFERENCES medications(id),
     ward_id INTEGER NOT NULL REFERENCES wards(id),
@@ -183,7 +183,7 @@ CREATE TABLE prescribed_medications (
 );
 
 CREATE TABLE supplies (
-    id SERIAL PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     item_code VARCHAR(20) NOT NULL UNIQUE,
     purpose VARCHAR(100) NOT NULL,
     description TEXT NOT NULL,
@@ -196,7 +196,7 @@ CREATE TABLE supplies (
 );
 
 CREATE TABLE suppliers (
-    id SERIAL PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     supplier_number VARCHAR(20) NOT NULL UNIQUE,
     name VARCHAR(100) NOT NULL,
     address_city VARCHAR(50) NOT NULL,
@@ -210,7 +210,7 @@ CREATE TABLE suppliers (
 );
 
 CREATE TABLE supply_requests (
-    id SERIAL PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     request_number VARCHAR(20) NOT NULL UNIQUE,
     employee_id INTEGER NOT NULL REFERENCES employees(id),
     ward_id INTEGER NOT NULL REFERENCES wards(id),
@@ -245,3 +245,6 @@ CREATE INDEX idx_prescribed_medications_medication_id ON prescribed_medications(
 -- Индексы для заявок на материалы
 CREATE INDEX idx_supply_requests_ward_id ON supply_requests(ward_id);
 CREATE INDEX idx_supply_requests_status ON supply_requests(status);
+
+
+DROP TABLE work_schedules, patients, patient_relatives, district_doctors, appointments, outpatient_patients, inpatient_patients, medications, prescribed_medications, supplies, suppliers, supply_requests;
