@@ -1501,6 +1501,26 @@ moc_formcomplant.cpp: Forms/formcomplant.h \
 		/opt/homebrew/lib/QtGui.framework/Headers/QValidator \
 		/opt/homebrew/lib/QtGui.framework/Headers/qvalidator.h \
 		/opt/homebrew/include/QtCore/qregularexpression.h \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/QVBoxLayout \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/qboxlayout.h \
+		/opt/homebrew/include/QtWidgets/qlayout.h \
+		/opt/homebrew/include/QtWidgets/qlayoutitem.h \
+		/opt/homebrew/include/QtWidgets/qboxlayout.h \
+		/opt/homebrew/include/QtWidgets/qgridlayout.h \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/QHBoxLayout \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/QLabel \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/qlabel.h \
+		/opt/homebrew/include/QtWidgets/qframe.h \
+		/opt/homebrew/include/QtGui/qpicture.h \
+		/opt/homebrew/include/QtGui/qtextdocument.h \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/QLineEdit \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/qlineedit.h \
+		/opt/homebrew/include/QtGui/qtextcursor.h \
+		/opt/homebrew/include/QtGui/qtextformat.h \
+		/opt/homebrew/include/QtGui/qpen.h \
+		/opt/homebrew/include/QtGui/qtextoption.h \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/QSpacerItem \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/qlayoutitem.h \
 		moc_predefs.h \
 		/opt/homebrew/share/qt/libexec/moc
 	/opt/homebrew/share/qt/libexec/moc $(DEFINES) --include /Users/oksanafedorova/lab6_Ars/moc_predefs.h -I/opt/homebrew/share/qt/mkspecs/macx-clang -I/Users/oksanafedorova/lab6_Ars -I/opt/homebrew/include -I/opt/homebrew/lib/QtWidgets.framework/Headers -I/opt/homebrew/lib/QtGui.framework/Headers -I/opt/homebrew/lib/QtSql.framework/Headers -I/opt/homebrew/lib/QtCore.framework/Headers -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -I/Library/Developer/CommandLineTools/usr/include -F/opt/homebrew/lib Forms/formcomplant.h -o moc_formcomplant.cpp
@@ -2033,6 +2053,35 @@ moc_mainwindow.cpp: mainwindow.h \
 		/opt/homebrew/include/QtCore/qabstractitemmodel.h \
 		/opt/homebrew/lib/QtSql.framework/Headers/QSqlQuery \
 		/opt/homebrew/lib/QtSql.framework/Headers/qsqlquery.h \
+		Forms/formcomplant.h \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/QDialog \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/qdialog.h \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/QVBoxLayout \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/qboxlayout.h \
+		/opt/homebrew/include/QtWidgets/qlayout.h \
+		/opt/homebrew/include/QtWidgets/qlayoutitem.h \
+		/opt/homebrew/include/QtWidgets/qboxlayout.h \
+		/opt/homebrew/include/QtWidgets/qgridlayout.h \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/QHBoxLayout \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/QLabel \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/qlabel.h \
+		/opt/homebrew/include/QtWidgets/qframe.h \
+		/opt/homebrew/include/QtGui/qpicture.h \
+		/opt/homebrew/include/QtGui/qtextdocument.h \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/QLineEdit \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/qlineedit.h \
+		/opt/homebrew/include/QtGui/qtextcursor.h \
+		/opt/homebrew/include/QtGui/qtextformat.h \
+		/opt/homebrew/include/QtGui/qpen.h \
+		/opt/homebrew/include/QtGui/qtextoption.h \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/QSpacerItem \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/qlayoutitem.h \
+		/opt/homebrew/lib/QtCore.framework/Headers/QDebug \
+		/opt/homebrew/lib/QtCore.framework/Headers/qdebug.h \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/QMessageBox \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		/opt/homebrew/include/QtWidgets/qdialog.h \
+		/opt/homebrew/include/QtWidgets/qdialogbuttonbox.h \
 		moc_predefs.h \
 		/opt/homebrew/share/qt/libexec/moc
 	/opt/homebrew/share/qt/libexec/moc $(DEFINES) --include /Users/oksanafedorova/lab6_Ars/moc_predefs.h -I/opt/homebrew/share/qt/mkspecs/macx-clang -I/Users/oksanafedorova/lab6_Ars -I/opt/homebrew/include -I/opt/homebrew/lib/QtWidgets.framework/Headers -I/opt/homebrew/lib/QtGui.framework/Headers -I/opt/homebrew/lib/QtSql.framework/Headers -I/opt/homebrew/lib/QtCore.framework/Headers -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -I/Library/Developer/CommandLineTools/usr/include -F/opt/homebrew/lib mainwindow.h -o moc_mainwindow.cpp
@@ -2274,6 +2323,26 @@ formcomplant.o: Forms/formcomplant.cpp Forms/formcomplant.h \
 		/opt/homebrew/lib/QtGui.framework/Headers/QValidator \
 		/opt/homebrew/lib/QtGui.framework/Headers/qvalidator.h \
 		/opt/homebrew/include/QtCore/qregularexpression.h \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/QVBoxLayout \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/qboxlayout.h \
+		/opt/homebrew/include/QtWidgets/qlayout.h \
+		/opt/homebrew/include/QtWidgets/qlayoutitem.h \
+		/opt/homebrew/include/QtWidgets/qboxlayout.h \
+		/opt/homebrew/include/QtWidgets/qgridlayout.h \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/QHBoxLayout \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/QLabel \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/qlabel.h \
+		/opt/homebrew/include/QtWidgets/qframe.h \
+		/opt/homebrew/include/QtGui/qpicture.h \
+		/opt/homebrew/include/QtGui/qtextdocument.h \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/QLineEdit \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/qlineedit.h \
+		/opt/homebrew/include/QtGui/qtextcursor.h \
+		/opt/homebrew/include/QtGui/qtextformat.h \
+		/opt/homebrew/include/QtGui/qpen.h \
+		/opt/homebrew/include/QtGui/qtextoption.h \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/QSpacerItem \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/qlayoutitem.h \
 		ui_formcomplant.h \
 		/opt/homebrew/include/QtCore/QVariant \
 		/opt/homebrew/include/QtWidgets/QAbstractButton \
@@ -2417,36 +2486,32 @@ QTableModel.o: QtModels/QTableModel.cpp QtModels/QTableModel.h \
 		/opt/homebrew/lib/QtCore.framework/Headers/qdebug.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o QTableModel.o QtModels/QTableModel.cpp
 
-QtModels.o: QtModels/QtModels.cpp Models/Models.hpp \
-		constants/Tables.hpp \
-		/opt/homebrew/lib/QtCore.framework/Headers/QStringList \
-		/opt/homebrew/lib/QtCore.framework/Headers/qstringlist.h \
-		/opt/homebrew/include/QtCore/qlist.h \
-		/opt/homebrew/include/QtCore/qarraydatapointer.h \
-		/opt/homebrew/include/QtCore/qarraydataops.h \
-		/opt/homebrew/include/QtCore/qarraydata.h \
-		/opt/homebrew/include/QtCore/qpair.h \
-		/opt/homebrew/include/QtCore/qcontainerfwd.h \
-		/opt/homebrew/include/QtCore/qtconfigmacros.h \
+QtModels.o: QtModels/QtModels.cpp QtModels/QtModels.hpp \
+		QtModels/QTableModel.h \
+		/opt/homebrew/lib/QtCore.framework/Headers/QAbstractListModel \
+		/opt/homebrew/lib/QtCore.framework/Headers/qabstractitemmodel.h \
+		/opt/homebrew/include/QtCore/qcompare.h \
+		/opt/homebrew/include/QtCore/qglobal.h \
+		/opt/homebrew/include/QtCore/qtcoreglobal.h \
+		/opt/homebrew/include/QtCore/qtversionchecks.h \
 		/opt/homebrew/include/QtCore/qtconfiginclude.h \
 		/opt/homebrew/include/QtCore/qconfig.h \
 		/opt/homebrew/include/QtCore/qtcore-config.h \
+		/opt/homebrew/include/QtCore/qtconfigmacros.h \
 		/opt/homebrew/include/QtCore/qtdeprecationdefinitions.h \
 		/opt/homebrew/include/QtCore/qcompilerdetection.h \
 		/opt/homebrew/include/QtCore/qprocessordetection.h \
 		/opt/homebrew/include/QtCore/qsystemdetection.h \
-		/opt/homebrew/include/QtCore/qtversionchecks.h \
-		/opt/homebrew/include/QtCore/qtypes.h \
-		/opt/homebrew/include/QtCore/qassert.h \
 		/opt/homebrew/include/QtCore/qtcoreexports.h \
 		/opt/homebrew/include/QtCore/qtdeprecationmarkers.h \
 		/opt/homebrew/include/QtCore/qtclasshelpermacros.h \
-		/opt/homebrew/include/QtCore/qtnoop.h \
-		/opt/homebrew/include/QtCore/qglobal.h \
-		/opt/homebrew/include/QtCore/qtcoreglobal.h \
 		/opt/homebrew/include/QtCore/qtpreprocessorsupport.h \
+		/opt/homebrew/include/QtCore/qassert.h \
+		/opt/homebrew/include/QtCore/qtnoop.h \
+		/opt/homebrew/include/QtCore/qtypes.h \
 		/opt/homebrew/include/QtCore/qtversion.h \
 		/opt/homebrew/include/QtCore/qtypeinfo.h \
+		/opt/homebrew/include/QtCore/qcontainerfwd.h \
 		/opt/homebrew/include/QtCore/qsysinfo.h \
 		/opt/homebrew/include/QtCore/qlogging.h \
 		/opt/homebrew/include/QtCore/qflags.h \
@@ -2472,23 +2537,28 @@ QtModels.o: QtModels/QtModels.cpp Models/Models.hpp \
 		/opt/homebrew/include/QtCore/qtresource.h \
 		/opt/homebrew/include/QtCore/qttranslation.h \
 		/opt/homebrew/include/QtCore/qversiontagging.h \
-		/opt/homebrew/include/QtCore/qcontainertools_impl.h \
-		/opt/homebrew/include/QtCore/qxptype_traits.h \
-		/opt/homebrew/include/QtCore/q20type_traits.h \
-		/opt/homebrew/include/QtCore/qnamespace.h \
-		/opt/homebrew/include/QtCore/qcompare.h \
 		/opt/homebrew/include/QtCore/qstdlibdetection.h \
 		/opt/homebrew/include/QtCore/qcomparehelpers.h \
-		/opt/homebrew/include/QtCore/qtmetamacros.h \
-		/opt/homebrew/include/QtCore/q20functional.h \
-		/opt/homebrew/include/QtCore/q20memory.h \
-		/opt/homebrew/include/QtCore/q17memory.h \
+		/opt/homebrew/include/QtCore/q20type_traits.h \
+		/opt/homebrew/include/QtCore/qhash.h \
+		/opt/homebrew/include/QtCore/qalgorithms.h \
+		/opt/homebrew/include/QtCore/qcontainertools_impl.h \
+		/opt/homebrew/include/QtCore/qxptype_traits.h \
 		/opt/homebrew/include/QtCore/qhashfunctions.h \
 		/opt/homebrew/include/QtCore/qstring.h \
 		/opt/homebrew/include/QtCore/qchar.h \
 		/opt/homebrew/include/QtCore/qstringview.h \
 		/opt/homebrew/include/QtCore/qbytearray.h \
 		/opt/homebrew/include/QtCore/qrefcount.h \
+		/opt/homebrew/include/QtCore/qnamespace.h \
+		/opt/homebrew/include/QtCore/qtmetamacros.h \
+		/opt/homebrew/include/QtCore/qarraydata.h \
+		/opt/homebrew/include/QtCore/qpair.h \
+		/opt/homebrew/include/QtCore/qarraydatapointer.h \
+		/opt/homebrew/include/QtCore/qarraydataops.h \
+		/opt/homebrew/include/QtCore/q20functional.h \
+		/opt/homebrew/include/QtCore/q20memory.h \
+		/opt/homebrew/include/QtCore/q17memory.h \
 		/opt/homebrew/include/QtCore/qbytearrayalgorithms.h \
 		/opt/homebrew/include/QtCore/qbytearrayview.h \
 		/opt/homebrew/include/QtCore/qstringfwd.h \
@@ -2502,19 +2572,20 @@ QtModels.o: QtModels/QtModels.cpp Models/Models.hpp \
 		/opt/homebrew/include/QtCore/qstringconverter.h \
 		/opt/homebrew/include/QtCore/qstringconverter_base.h \
 		/opt/homebrew/include/QtCore/qiterator.h \
+		/opt/homebrew/include/QtCore/qlist.h \
 		/opt/homebrew/include/QtCore/qbytearraylist.h \
 		/opt/homebrew/include/QtCore/qstringlist.h \
-		/opt/homebrew/include/QtCore/qalgorithms.h \
 		/opt/homebrew/include/QtCore/qstringmatcher.h \
-		/opt/homebrew/lib/QtCore.framework/Headers/QString \
-		/opt/homebrew/lib/QtCore.framework/Headers/qstring.h \
-		/opt/homebrew/lib/QtCore.framework/Headers/QMap \
-		/opt/homebrew/lib/QtCore.framework/Headers/qmap.h \
-		/opt/homebrew/include/QtCore/qshareddata.h \
-		/opt/homebrew/include/QtCore/qshareddata_impl.h \
-		/opt/homebrew/lib/QtCore.framework/Headers/QRegularExpression \
-		/opt/homebrew/lib/QtCore.framework/Headers/qregularexpression.h \
-		/opt/homebrew/include/QtCore/qvariant.h \
+		/opt/homebrew/include/QtCore/qobject.h \
+		/opt/homebrew/include/QtCore/qobjectdefs.h \
+		/opt/homebrew/include/QtCore/qobjectdefs_impl.h \
+		/opt/homebrew/include/QtCore/qfunctionaltools_impl.h \
+		/opt/homebrew/include/QtCore/qcoreevent.h \
+		/opt/homebrew/include/QtCore/qbasictimer.h \
+		/opt/homebrew/include/QtCore/qabstracteventdispatcher.h \
+		/opt/homebrew/include/QtCore/qeventloop.h \
+		/opt/homebrew/include/QtCore/qdeadlinetimer.h \
+		/opt/homebrew/include/QtCore/qelapsedtimer.h \
 		/opt/homebrew/include/QtCore/qmetatype.h \
 		/opt/homebrew/include/QtCore/qdatastream.h \
 		/opt/homebrew/include/QtCore/qscopedpointer.h \
@@ -2526,30 +2597,32 @@ QtModels.o: QtModels/QtModels.cpp Models/Models.hpp \
 		/opt/homebrew/include/QtCore/qmetacontainer.h \
 		/opt/homebrew/include/QtCore/qcontainerinfo.h \
 		/opt/homebrew/include/QtCore/qtaggedpointer.h \
-		/opt/homebrew/include/QtCore/qobjectdefs.h \
-		/opt/homebrew/include/QtCore/qobjectdefs_impl.h \
-		/opt/homebrew/include/QtCore/qfunctionaltools_impl.h \
 		/opt/homebrew/include/QtCore/qscopeguard.h \
+		/opt/homebrew/include/QtCore/qobject_impl.h \
+		/opt/homebrew/include/QtCore/qbindingstorage.h \
+		/opt/homebrew/include/QtCore/qvariant.h \
 		/opt/homebrew/include/QtCore/qdebug.h \
 		/opt/homebrew/include/QtCore/qtextstream.h \
 		/opt/homebrew/include/QtCore/qcontiguouscache.h \
 		/opt/homebrew/include/QtCore/qsharedpointer.h \
+		/opt/homebrew/include/QtCore/qshareddata.h \
 		/opt/homebrew/include/QtCore/qsharedpointer_impl.h \
 		/opt/homebrew/include/QtCore/qmap.h \
+		/opt/homebrew/include/QtCore/qshareddata_impl.h \
 		/opt/homebrew/include/QtCore/qset.h \
-		/opt/homebrew/include/QtCore/qhash.h \
 		/opt/homebrew/include/QtCore/qvarlengtharray.h \
 		/opt/homebrew/include/QtCore/q23utility.h \
 		/opt/homebrew/include/QtCore/q20utility.h \
-		/opt/homebrew/include/QtCore/qobject.h \
-		/opt/homebrew/include/QtCore/qcoreevent.h \
-		/opt/homebrew/include/QtCore/qbasictimer.h \
-		/opt/homebrew/include/QtCore/qabstracteventdispatcher.h \
-		/opt/homebrew/include/QtCore/qeventloop.h \
-		/opt/homebrew/include/QtCore/qdeadlinetimer.h \
-		/opt/homebrew/include/QtCore/qelapsedtimer.h \
-		/opt/homebrew/include/QtCore/qobject_impl.h \
-		/opt/homebrew/include/QtCore/qbindingstorage.h \
+		Models/Models.hpp \
+		constants/Tables.hpp \
+		/opt/homebrew/lib/QtCore.framework/Headers/QStringList \
+		/opt/homebrew/lib/QtCore.framework/Headers/qstringlist.h \
+		/opt/homebrew/lib/QtCore.framework/Headers/QString \
+		/opt/homebrew/lib/QtCore.framework/Headers/qstring.h \
+		/opt/homebrew/lib/QtCore.framework/Headers/QMap \
+		/opt/homebrew/lib/QtCore.framework/Headers/qmap.h \
+		/opt/homebrew/lib/QtCore.framework/Headers/QRegularExpression \
+		/opt/homebrew/lib/QtCore.framework/Headers/qregularexpression.h \
 		/opt/homebrew/lib/QtGui.framework/Headers/QValidator \
 		/opt/homebrew/lib/QtGui.framework/Headers/qvalidator.h \
 		/opt/homebrew/include/QtGui/qtguiglobal.h \
@@ -2573,11 +2646,7 @@ QtModels.o: QtModels/QtModels.cpp Models/Models.hpp \
 		/opt/homebrew/include/QtSql/qsqlquerymodel.h \
 		/opt/homebrew/include/QtCore/qabstractitemmodel.h \
 		/opt/homebrew/lib/QtSql.framework/Headers/QSqlQuery \
-		/opt/homebrew/lib/QtSql.framework/Headers/qsqlquery.h \
-		QtModels/QtModels.hpp \
-		QtModels/QTableModel.h \
-		/opt/homebrew/lib/QtCore.framework/Headers/QAbstractListModel \
-		/opt/homebrew/lib/QtCore.framework/Headers/qabstractitemmodel.h
+		/opt/homebrew/lib/QtSql.framework/Headers/qsqlquery.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o QtModels.o QtModels/QtModels.cpp
 
 Models.o: Models/Models.cpp Models/Models.hpp \
@@ -2974,6 +3043,35 @@ main.o: main.cpp mainwindow.h \
 		/opt/homebrew/include/QtCore/qabstractitemmodel.h \
 		/opt/homebrew/lib/QtSql.framework/Headers/QSqlQuery \
 		/opt/homebrew/lib/QtSql.framework/Headers/qsqlquery.h \
+		Forms/formcomplant.h \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/QDialog \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/qdialog.h \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/QVBoxLayout \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/qboxlayout.h \
+		/opt/homebrew/include/QtWidgets/qlayout.h \
+		/opt/homebrew/include/QtWidgets/qlayoutitem.h \
+		/opt/homebrew/include/QtWidgets/qboxlayout.h \
+		/opt/homebrew/include/QtWidgets/qgridlayout.h \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/QHBoxLayout \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/QLabel \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/qlabel.h \
+		/opt/homebrew/include/QtWidgets/qframe.h \
+		/opt/homebrew/include/QtGui/qpicture.h \
+		/opt/homebrew/include/QtGui/qtextdocument.h \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/QLineEdit \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/qlineedit.h \
+		/opt/homebrew/include/QtGui/qtextcursor.h \
+		/opt/homebrew/include/QtGui/qtextformat.h \
+		/opt/homebrew/include/QtGui/qpen.h \
+		/opt/homebrew/include/QtGui/qtextoption.h \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/QSpacerItem \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/qlayoutitem.h \
+		/opt/homebrew/lib/QtCore.framework/Headers/QDebug \
+		/opt/homebrew/lib/QtCore.framework/Headers/qdebug.h \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/QMessageBox \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		/opt/homebrew/include/QtWidgets/qdialog.h \
+		/opt/homebrew/include/QtWidgets/qdialogbuttonbox.h \
 		/opt/homebrew/lib/QtWidgets.framework/Headers/QApplication \
 		/opt/homebrew/lib/QtWidgets.framework/Headers/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
@@ -3211,6 +3309,35 @@ mainwindow.o: mainwindow.cpp mainwindow.h \
 		/opt/homebrew/include/QtCore/qabstractitemmodel.h \
 		/opt/homebrew/lib/QtSql.framework/Headers/QSqlQuery \
 		/opt/homebrew/lib/QtSql.framework/Headers/qsqlquery.h \
+		Forms/formcomplant.h \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/QDialog \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/qdialog.h \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/QVBoxLayout \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/qboxlayout.h \
+		/opt/homebrew/include/QtWidgets/qlayout.h \
+		/opt/homebrew/include/QtWidgets/qlayoutitem.h \
+		/opt/homebrew/include/QtWidgets/qboxlayout.h \
+		/opt/homebrew/include/QtWidgets/qgridlayout.h \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/QHBoxLayout \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/QLabel \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/qlabel.h \
+		/opt/homebrew/include/QtWidgets/qframe.h \
+		/opt/homebrew/include/QtGui/qpicture.h \
+		/opt/homebrew/include/QtGui/qtextdocument.h \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/QLineEdit \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/qlineedit.h \
+		/opt/homebrew/include/QtGui/qtextcursor.h \
+		/opt/homebrew/include/QtGui/qtextformat.h \
+		/opt/homebrew/include/QtGui/qpen.h \
+		/opt/homebrew/include/QtGui/qtextoption.h \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/QSpacerItem \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/qlayoutitem.h \
+		/opt/homebrew/lib/QtCore.framework/Headers/QDebug \
+		/opt/homebrew/lib/QtCore.framework/Headers/qdebug.h \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/QMessageBox \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		/opt/homebrew/include/QtWidgets/qdialog.h \
+		/opt/homebrew/include/QtWidgets/qdialogbuttonbox.h \
 		ui_mainwindow.h \
 		/opt/homebrew/include/QtCore/QVariant \
 		/opt/homebrew/include/QtWidgets/QApplication \
@@ -3226,7 +3353,6 @@ mainwindow.o: mainwindow.cpp mainwindow.h \
 		/opt/homebrew/include/QtWidgets/qstyle.h \
 		/opt/homebrew/include/QtWidgets/qtabbar.h \
 		/opt/homebrew/include/QtWidgets/qrubberband.h \
-		/opt/homebrew/include/QtWidgets/qframe.h \
 		/opt/homebrew/include/QtWidgets/QHeaderView \
 		/opt/homebrew/include/QtWidgets/qheaderview.h \
 		/opt/homebrew/include/QtWidgets/qabstractitemview.h \
@@ -3244,16 +3370,7 @@ mainwindow.o: mainwindow.cpp mainwindow.h \
 		/opt/homebrew/include/QtWidgets/qstatusbar.h \
 		/opt/homebrew/include/QtWidgets/QTableView \
 		/opt/homebrew/include/QtWidgets/qtableview.h \
-		/opt/homebrew/include/QtWidgets/QWidget \
-		Forms/formcomplant.h \
-		/opt/homebrew/lib/QtWidgets.framework/Headers/QDialog \
-		/opt/homebrew/lib/QtWidgets.framework/Headers/qdialog.h \
-		/opt/homebrew/lib/QtCore.framework/Headers/QDebug \
-		/opt/homebrew/lib/QtCore.framework/Headers/qdebug.h \
-		/opt/homebrew/lib/QtWidgets.framework/Headers/QMessageBox \
-		/opt/homebrew/lib/QtWidgets.framework/Headers/qmessagebox.h \
-		/opt/homebrew/include/QtWidgets/qdialog.h \
-		/opt/homebrew/include/QtWidgets/qdialogbuttonbox.h
+		/opt/homebrew/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o mainwindow.cpp
 
 moc_formcomplant.o: moc_formcomplant.cpp 

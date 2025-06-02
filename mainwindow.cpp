@@ -1,8 +1,5 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "Forms/formcomplant.h"
-#include <QDebug>
-#include <QMessageBox>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow)
@@ -109,8 +106,8 @@ void MainWindow::showFormForCurrentTable()
     QMessageBox::information(this, "Добавление", 
                            QString("Должна открыться форма для добавления в таблицу %1").arg(tableName));
     
-    Form *form = new FormComplant(currentType, this);
-    connect(form, &Form::dataEntered, models[currentType], &QtModel::addItem);
+    FormComplant *form = new FormComplant(currentType, this);
+    connect(form, &FormComplant::dataEntered, this->models[currentType], &QTableModel::addItem);
     form->show();
 }
 

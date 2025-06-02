@@ -31,6 +31,7 @@ private:
     Ui::FormComplant *ui;
     ElementType m_formType;
     QMap<QString, QLineEdit*> m_lineEdits;
+    QMap<QString, QLabel*> m_labels;
 };
 
 #endif // FORMCOMPLANT_H

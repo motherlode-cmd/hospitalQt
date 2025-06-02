@@ -13,6 +13,7 @@ FormComplant::FormComplant(ElementType formType, QWidget *parent)
     , ui(new Ui::FormComplant)
 {
     ui->setupUi(this);
+    delete this->layout();
 
     this->m_formType = formType;
    
@@ -33,7 +34,7 @@ FormComplant::FormComplant(ElementType formType, QWidget *parent)
 
     for (const auto& field : tableLabels[formType]) {
 
-        QLabel *label = new QLabel("Введите" + descriptionLabels[formType], this);
+        QLabel *label = new QLabel("Введите " + descriptionLabels[field], this);
 
         label->setFixedWidth(maxLabelWidth);
         label->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
@@ -45,14 +46,19 @@ FormComplant::FormComplant(ElementType formType, QWidget *parent)
         QValidator *qLabelValidator = new QRegularExpressionValidator(qvalidatorLabel, this);
         
         m_lineEdits[field] = lineEdit;
+        m_labels[field] = label;
         
-        rowLayout->addWidget(label);
-        rowLayout->addWidget(lineEdit);
-        
-        mainLayout->addLayout(rowLayout);
+        mainLayout->addWidget(label);
+        mainLayout->addWidget(lineEdit);
     }
     
     mainLayout->addStretch();
+
+    mainLayout->addWidget(ui->buttonBox);
+    
+    ui->buttonBox->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
+    connect(ui->buttonBox, &QDialogButtonBox::accepted, this, &FormComplant::accept);
+    connect(ui->buttonBox, &QDialogButtonBox::rejected, this, &FormComplant::reject);
     
     this->setLayout(mainLayout);
     
@@ -69,6 +75,6 @@ void FormComplant::on_buttonBox_accepted()
 {
     QStringList userData;
 
-    //emit dataEntered(userData);
+    emit dataEntered(userData);
     close();
 }

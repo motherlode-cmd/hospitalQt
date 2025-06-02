@@ -89,7 +89,7 @@ const QMap<ElementType, QString> tableNames{
 {ElementType::Supply_requests, "supply_requests"}
 };
 
-QMap<QString, QString> descriptionLabels
+const QMap<QString, QString> descriptionLabels
 {
     // Общие поля
     {"id", "Уникальный идентификатор"},
